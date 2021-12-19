@@ -13,6 +13,8 @@ const YELP_API_KEY = "";
 export default function Home() {
 
   const [restaurantData,setRestaurantData] = useState(LocalRestaurant);
+  const [city, setcity] = useState("San Francisco");
+  const [activeTab, setActiveTab] = useState("Delivery");
 
   const getRestaurantsFromYelp = () => {
 
@@ -27,7 +29,7 @@ export default function Home() {
 
     return fetch(yelpUrl,apiOptions)
     .then((res)=>res.json())
-    .then(json=> setRestaurantData(json.businesses));
+    .then(json=> setRestaurantData(json.businesses ));
   
   };
 
